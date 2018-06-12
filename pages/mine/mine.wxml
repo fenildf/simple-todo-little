@@ -1,2 +1,12 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class='mineContainer'>
+  <view class='userInfo'>
+    <image src='{{userInfo.avatarUrl}}'></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class='item'>
+    <image class='item_img' src='../res/alter_delete.png'></image>
+    <text>已删除</text>
+  </view>
+  <view class='item_line'></view>
+</view>
