@@ -1,9 +1,11 @@
 {
   "pages": [
+    
     "pages/index/index",
     "pages/finished/finished",
     "pages/logs/logs",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/add/add"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,6 +17,7 @@
       {
         "pagePath": "pages/index/index",
         "text": "未完成"
+        
       },
       {
         "pagePath": "pages/finished/finished",
@@ -22,7 +25,9 @@
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的"
+        "text": "我的",
+        "iconPath":"pages/res/mine.png",
+        "selectedIconPath":"pages/res/mine_checked.png"
       }
     ],
     "selectedColor": "#d85581"

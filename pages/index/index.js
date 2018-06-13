@@ -51,5 +51,12 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+
+  add:function(){
+    console.log('add new todo');
+    wx.navigateTo({
+      url: '../add/add',
+    })
   }
 })
