@@ -1,9 +1,0 @@
-<!--pages/add/add.wxml-->
-<view class='add_container'>
-  <form bindsubmit="bindFormSubmit">
-    <textarea placeholder="请输入新增的待办事项" name="textarea"
-    show-confirm-bar='false' auto-height='true'
-    />
-    <button form-type="submit"> 提交 </button>
-  </form>
-</view>

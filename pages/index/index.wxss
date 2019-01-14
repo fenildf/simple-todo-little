@@ -1,30 +1,83 @@
 /**index.wxss**/
 
-.userinfo {
+.bottom-bar {
+  height: 110rpx;
+  background-color: white;
+  box-shadow: 0rpx -5rpx 1rpx #eaeaea;
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
   display: flex;
-  flex-direction: column;
+}
+
+.menu {
+  width: 40rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20rpx;
+  margin: auto;
+  display: none;
+}
+
+.add {
+  background-color: #2a86f0;
+  height: 80%;
+  width: 40%;
+  margin: 10rpx auto;
+  border-radius: 45rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.add-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 30rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.add-text {
+  color: white;
+  font-size: 30rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
-}
-
-.add_img {
+.view-input{
   position: fixed;
-  width: 105rpx;
-  height: 105rpx;
-  bottom: 20rpx;
-  right: 20rpx;
+  bottom: 0rpx;
+  width: 100%;
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: #eaeaea;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+
+.view-input textarea{
+  padding-left: 20rpx;
+  width: 100%;
+  padding-right: 20rpx;
+}
+
+.placeholder{
+  color: #999999;
+}
+
+.view-submit{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+}
+
+.btn-submit{
+  color: #2a86f0;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 10rpx;
 }
