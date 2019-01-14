@@ -1,23 +1,25 @@
 <!--index.wxml-->
 <view class="root">
   <!-- 获取授权 -->
-  <button open-type='getUserInfo' bindgetuserinfo='onGotUserInfo' wx:if="{{userInfo}}">获取授权</button>
+  <button open-type='getUserInfo' bindgetuserinfo='onGotUserInfo' wx:if="{{!isAuth}}">获取授权</button>
   <!-- 内容 -->
-  <view wx:if="{{!userInfo}}">
+  <view wx:if="{{isAuth}}">
     <!-- 底部导航条 -->
     <view class='bottom-bar' wx:if="{{!isInput}}">
       <image src="/icons/menu.png" class="menu"></image>
       <view class='add'>
         <image src='/icons/add.png' class='add-icon'></image>
-        <text class="add-text">添加新任务</text>
+        <text class="add-text" bindtap='addTask'>添加新任务</text>
       </view>
     </view>
     <!-- 输入框 -->
     <view class="view-input" wx:if="{{isInput}}">
-      <textarea placeholder='添加新的任务' placeholder-class='placeholder' focus='{{true}}' auto-height></textarea>
-      <view class='view-submit'>
-        <text class='btn-submit'>提交</text>
-      </view>
+      <form bindsubmit='submitTask'>
+        <textarea placeholder='添加新的任务' placeholder-class='placeholder' focus='{{true}}' auto-height name="textarea"></textarea>
+        <view class='view-submit'>
+          <button class='btn-submit' form-type='submit'>提交</button>
+        </view>
+      </form>
     </view>
   </view>
 </view>
