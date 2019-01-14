@@ -1,4 +1,6 @@
 const app = getApp();
+let that;
+
 
 Page({
 
@@ -6,22 +8,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: null,
+    userInfo: {
+      openId: app.openId
+    },
     isInput: false,
-    isAuth: app.auth
+    isAuth: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
-    wx.cloud.callFunction({
-      name:'index'
-    }).then(res => {
-      console.log(res.result) // 3
-    }).catch(console.error);
 
+    that = this;
+    getAuth();
   },
 
   /**
@@ -97,24 +97,16 @@ Page({
   submitTask(e) {
     console.log("提交新的任务");
     console.log(e.detail.value.textarea)
-
   }
 })
 
-function wxLogin() {
-  wx.login({
-    success(res) {
-      if (res.code) {
-        // 发起网络请求
-        wx.request({
-          url: 'https://test.com/onLogin',
-          data: {
-            code: res.code
-          }
-        })
-      } else {
-        console.log('登录失败！' + res.errMsg)
-      }
+function getAuth() {
+  wx.getSetting({
+    success(e) {
+      console.log(e.authSetting);
+      that.setData({
+        // isAuth: e.authSetting.scope.userInfo
+      })
     }
   })
 }

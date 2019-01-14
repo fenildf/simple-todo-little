@@ -4,12 +4,25 @@ App({
 
   auth: false,
 
+  openId: null,
+  appid: null,
+
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function() {
     that = this;
+
     wx.cloud.init()
+    wx.cloud.callFunction({
+      name: 'index'
+    }).then(res => {
+
+      console.log(res.result)
+      that.openId = res.result.openid;
+      that.appid = res.result.appid;
+      
+    }).catch(console.error);
   },
 
   /**
@@ -33,30 +46,3 @@ App({
 
   }
 })
-
-function getIds(){
-  wx.cloud.callFunction({
-    // 云函数名称
-    name: 'index',
-    // 传给云函数的参数
-    data: {
-      
-    },
-  })
-    .then(res => {
-      console.log(res.result) // 3
-    })
-    .catch(console.error)
-}
-
-function getAuth() {
-  wx.getSetting({
-    success(res) {
-      console.log(res);
-      that.auth = true;
-    },
-    fail(e){
-      
-    }
-  })
-}
