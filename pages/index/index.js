@@ -27,9 +27,10 @@ Page({
    * 
    */
   getTodos() {
-    that.setData({
-      todos:null
-    })
+    that.todos = null
+    // that.setData({
+    //   todos:null
+    // })
     const todos = db.collection('tb_todos')
       .where({
         done: db.command.eq(false)

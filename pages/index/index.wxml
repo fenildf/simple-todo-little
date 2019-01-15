@@ -3,12 +3,14 @@
   <!-- 获取授权 -->
   <!-- <button open-type='getUserInfo' bindgetuserinfo='onGotUserInfo' wx:if="{{!isAuth}}">获取授权</button> -->
   <!-- 内容 -->
-  <view wx:if="{{isAuth}}">
-    <view class="item" wx:for="{{todos}}" wx:key="*this">
-      <checkbox-group bindchange="checkboxChange">
-        <checkbox value="{{item._id}}" />
-      </checkbox-group>
-      <text>{{item.value}}</text>
+  <view wx:if="{{isAuth}}" class="content">
+    <view class="item-content">
+      <view class="item" wx:for="{{todos}}" wx:key="*this">
+        <checkbox-group bindchange="checkboxChange">
+          <checkbox value="{{item._id}}" />
+        </checkbox-group>
+        <text>{{item.value}}</text>
+      </view>
     </view>
     <!-- 底部导航条 -->
     <view class='bottom-bar' wx:if="{{!isInput}}">
@@ -18,14 +20,16 @@
         <text class="add-text" bindtap='addTask'>添加新任务</text>
       </view>
     </view>
-    <!-- 输入框 -->
+  </view>
+
+  <!-- 输入框 -->
     <view class="view-input" wx:if="{{isInput}}">
       <form bindsubmit='submitTask'>
-        <textarea placeholder='添加新的任务' placeholder-class='placeholder' focus='{{true}}' auto-height name="textarea"></textarea>
+        <textarea placeholder='添加新的任务' placeholder-class='placeholder' focus='{{true}}' auto-height name="textarea" 
+        adjust-position='{{false}}' show-confirm-bar='{{false}}' cursor-spacing='{{30}}'></textarea>
         <view class='view-submit'>
           <button class='btn-submit' form-type='submit'>提交</button>
         </view>
       </form>
     </view>
-  </view>
 </view>
