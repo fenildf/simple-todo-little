@@ -2,11 +2,6 @@ let that;
 
 App({
 
-  auth: false,
-
-  openId: null,
-  appid: null,
-
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
@@ -19,9 +14,10 @@ App({
     }).then(res => {
 
       console.log(res.result)
-      that.openId = res.result.openid;
-      that.appid = res.result.appid;
-      
+      // that.openId = res.result.openid;
+      // that.appid = res.result.appid;
+      that.globalData.appid = res.result.appid;
+      that.globalData.openId =res.result.openid;
     }).catch(console.error);
   },
 
@@ -44,5 +40,11 @@ App({
    */
   onError: function(msg) {
 
+  },
+  globalData:{
+    auth: false,
+
+    openId: null,
+    appid: null,
   }
 })

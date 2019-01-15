@@ -1,9 +1,15 @@
-<!--index.wxml-->
+<!-- index.wxml -->
 <view class="root">
   <!-- 获取授权 -->
-  <button open-type='getUserInfo' bindgetuserinfo='onGotUserInfo' wx:if="{{!isAuth}}">获取授权</button>
+  <!-- <button open-type='getUserInfo' bindgetuserinfo='onGotUserInfo' wx:if="{{!isAuth}}">获取授权</button> -->
   <!-- 内容 -->
   <view wx:if="{{isAuth}}">
+    <view class="item" wx:for="{{todos}}" wx:key="*this">
+      <checkbox-group bindchange="checkboxChange">
+        <checkbox value="{{item._id}}" />
+      </checkbox-group>
+      <text>{{item.value}}</text>
+    </view>
     <!-- 底部导航条 -->
     <view class='bottom-bar' wx:if="{{!isInput}}">
       <image src="/icons/menu.png" class="menu"></image>

@@ -44,7 +44,7 @@
   font-size: 30rpx;
 }
 
-.view-input{
+.view-input {
   position: fixed;
   bottom: 0rpx;
   width: 100%;
@@ -57,27 +57,41 @@
   border-top-right-radius: 10rpx;
 }
 
-.view-input textarea{
+.view-input textarea {
   padding-left: 20rpx;
   width: 100%;
   padding-right: 20rpx;
 }
 
-.placeholder{
+.placeholder {
   color: #999999;
 }
 
-.view-submit{
+.view-submit {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   flex-wrap: nowrap;
 }
 
-.btn-submit{
+.btn-submit {
   color: #2a86f0;
   font-size: 30rpx;
   margin-top: 20rpx;
   margin-right: 20rpx;
   margin-bottom: 10rpx;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 30rpx;
+  border-bottom-color: #eeeeee;
+  border-bottom-width: 1rpx;
+  border-bottom-style: solid;
+}
+
+.item text{
+  margin-left: 20rpx;
 }
