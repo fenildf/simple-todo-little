@@ -13,7 +13,7 @@ Page({
     },
     isInput: false,
     isAuth: true,
-    todos: null
+    todos: []
   },
 
   /**
@@ -24,13 +24,12 @@ Page({
     this.getTodos()
   },
   /**
-   * 
+   * 获取全部todo列表 
    */
   getTodos() {
-    that.todos = null
-    // that.setData({
-    //   todos:null
-    // })
+    that.setData({
+      todos:[]
+    })
     const todos = db.collection('tb_todos')
       .where({
         done: db.command.eq(false)
@@ -89,7 +88,7 @@ Page({
 
   },
   /**
-   * 
+   * checkbox点击事件
    */
   checkboxChange: function (e) {
     const _id = e.detail.value[0]
@@ -135,7 +134,7 @@ Page({
     })
   },
   /**
-   * 
+   * 提交新增的todo
    */
   submitTask(e) {
     let that = this;
